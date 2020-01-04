@@ -12,12 +12,12 @@ Feature: Search functionality
     When I log in using invalid credentials
     Then I should not be logged in
 
-#  Scenario: Product Search
-#    Given I am a logged in user on the website
-#    When I search for a product
-#    And I select the first product in the list
-#    Then I should see the product details
-#
+  Scenario: Product Search
+    Given I am a logged in user on the website
+    When I search for a product
+    And I select the first product in the list
+    Then I should see the product details
+
 #  Scenario: Add product to cart
 #    Given I am a logged in user on the website
 #    And my shopping cart is empty
