@@ -16,6 +16,8 @@ public class HomePageObj {
     By popUpClose = By.className("close-reveal-modal");
     By search = By.id("search");
     By searchButton = By.className("icon-search");
+    By cartName = By.className("sup");
+    By emptyButton = By.id("empty_cart_button");
 
 
     public HomePageObj(WebDriver browser){
@@ -45,5 +47,16 @@ public class HomePageObj {
     public void searchProduct(String product){
         browser.findElement(search).sendKeys(product);
         browser.findElement(searchButton).click();
+    }
+
+    public String cartCount() {
+        sleep(1);
+        return browser.findElements(cartName).get(1).getText();
+    }
+
+    public void emptyCart() {
+        browser.findElements(cartName).get(1).click();
+        sleep(1);
+        browser.findElement(emptyButton).click();
     }
 }

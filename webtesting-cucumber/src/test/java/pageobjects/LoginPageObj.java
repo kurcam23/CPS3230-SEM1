@@ -18,6 +18,7 @@ public class LoginPageObj {
     }
 
     public void logIn(String email, String password){
+        sleep(1);
         browser.findElement(yourAccount).click();
         sleep(2);
         browser.findElement(emailId).sendKeys(email);
