@@ -7,4 +7,5 @@ class ScanOperator {
         this.browser = browser;
         browser.get("https://www.scanmalta.com/newstore/");
     }
+
 }
