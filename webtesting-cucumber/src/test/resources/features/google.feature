@@ -7,11 +7,11 @@ Feature: Search functionality
     When I log in using valid credentials
     Then I should be logged in
 
-#  Scenario: Invalid Login
-#    Given I am a user on the website
-#    When I log in using invalid credentials
-#    Then I should not be logged in
-#
+  Scenario: Invalid Login
+    Given I am a user on the website
+    When I log in using invalid credentials
+    Then I should not be logged in
+
 #  Scenario: Product Search
 #    Given I am a logged in user on the website
 #    When I search for a product

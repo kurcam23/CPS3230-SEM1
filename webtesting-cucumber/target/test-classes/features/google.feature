@@ -2,21 +2,16 @@ Feature: Search functionality
 
   I want to be able to search for stuff
 
-#  Scenario: Simple Search
-#    Given I am using Scan Malta website
-#    When I search for "Laptop"
-#    Then the title should be "SCAN | Your Trusted Choice - Search results for: 'Laptop'"
-
-  Scenario: Valid Login
-    Given I am a user on the website
-    When I log in using valid credentials
-    Then I should be logged in
-
-#  Scenario: Invalid Login
+#  Scenario: Valid Login
 #    Given I am a user on the website
-#    When I log in using invalid credentials
-#    Then I should not be logged in
-#
+#    When I log in using valid credentials
+#    Then I should be logged in
+
+  Scenario: Invalid Login
+    Given I am a user on the website
+    When I log in using invalid credentials
+    Then I should not be logged in
+
 #  Scenario: Product Search
 #    Given I am a logged in user on the website
 #    When I search for a product

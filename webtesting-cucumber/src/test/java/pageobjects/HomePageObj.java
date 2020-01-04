@@ -29,7 +29,7 @@ public class HomePageObj {
         if(browser.findElements(loginText).size() != 0) {
             loggedIn = !browser.findElement(loginText).isDisplayed();
         }else{
-            loggedIn = true;
+            loggedIn = false;
         }
         return loggedIn;
     }

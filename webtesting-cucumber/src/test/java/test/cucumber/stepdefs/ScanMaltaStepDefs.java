@@ -45,7 +45,7 @@ public class ScanMaltaStepDefs {
 
     @When("I log in using valid credentials")
     public void iLogInUsingValidCredentials() {
-        loginPageObj.logIn();
+        loginPageObj.logIn("kcam0061@gmail.com", "testing123");
     }
 
     @Then("I should be logged in")
@@ -54,7 +54,16 @@ public class ScanMaltaStepDefs {
         assertTrue(homePageObj.loggedIn());
     }
 
+    @When("I log in using invalid credentials")
+    public void iLogInUsingInvalidCredentials() {
+        loginPageObj.logIn("invalid@Email.com", "invalidPassword");
+    }
 
+    @Then("I should not be logged in")
+    public void iShouldNotBeLoggedIn() {
+        sleep(2);
+        assertFalse(homePageObj.loggedIn());
+    }
 
     @After
     public void teardown() {
