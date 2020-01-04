@@ -16,6 +16,7 @@ public class CatalogSearchPageObj {
     By addProductButton = By.id("product-addtocart-button");
     By qtyList = By.id("qty_chosen");
     By listItem = By.className("active-result");
+    By continueButton = By.className("secondary");
 
     public CatalogSearchPageObj(WebDriver browser){
         CatalogSearchPageObj.browser = browser;
@@ -35,5 +36,7 @@ public class CatalogSearchPageObj {
         browser.findElement(qtyList).click();
         browser.findElements(listItem).get(qty-1).click();
         browser.findElement(addProductButton).click();
+        sleep(1);
+        browser.findElement(continueButton).click();
     }
 }

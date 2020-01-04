@@ -43,8 +43,8 @@ Feature: Search functionality
     When I add 9 products to my shopping cart
     Then my shopping cart should contain 9 item
 
-#  Scenario: Removing a product from cart
-#    Given I am a logged in user on the website
-#    And my shopping cart has 2 products
-#    When I remove the first product in my cart
-#    Then my shopping cart should contain 1 item
+  Scenario: Removing a product from cart
+    Given I am a logged in user on the website
+    And my shopping cart has 2 products
+    When I remove the first product in my cart
+    Then my shopping cart should contain 1 item

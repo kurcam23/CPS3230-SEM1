@@ -57,7 +57,7 @@ public class HomePageObj {
 
     public void emptyCart() {
         browser.findElements(cartName).get(1).click();
-        sleep(1);
+        sleep(2);
         browser.findElement(emptyButton).click();
     }
 }

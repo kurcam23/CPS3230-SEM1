@@ -11,6 +11,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import static org.junit.Assert.*;
 
+import pageobjects.CartPageObj;
 import pageobjects.CatalogSearchPageObj;
 import pageobjects.HomePageObj;
 import pageobjects.LoginPageObj;
@@ -21,6 +22,8 @@ public class ScanMaltaStepDefs {
     HomePageObj homePageObj;
     LoginPageObj loginPageObj;
     CatalogSearchPageObj catalogSearchPageObj;
+    CartPageObj cartPageObj;
+    String[] items = {"Laptop", "Mobile"};
 
     @Before
     public void setup() {
@@ -30,6 +33,7 @@ public class ScanMaltaStepDefs {
         homePageObj = new HomePageObj(browser);
         loginPageObj = new LoginPageObj(browser);
         catalogSearchPageObj = new CatalogSearchPageObj(browser);
+        cartPageObj = new CartPageObj(browser);
 
         sleep(2);
         homePageObj.closePopUp();
@@ -102,7 +106,7 @@ public class ScanMaltaStepDefs {
 
     @When("I view the details of a product")
     public void iViewTheDetailsOfAProduct() {
-        homePageObj.searchProduct("laptop");
+        homePageObj.searchProduct(items[0]);
         sleep(1);
         catalogSearchPageObj.selectProduct();
         sleep(1);
@@ -121,7 +125,7 @@ public class ScanMaltaStepDefs {
 
     @When("I add {int} products to my shopping cart")
     public void iAddProductsToMyShoppingCart(int itemCount) {
-        homePageObj.searchProduct("laptop");
+        homePageObj.searchProduct(items[0]);
         sleep(1);
         catalogSearchPageObj.selectProduct();
         sleep(1);
@@ -131,5 +135,22 @@ public class ScanMaltaStepDefs {
     @After
     public void teardown() {
         browser.quit();
+    }
+
+    @And("my shopping cart has {int} products")
+    public void myShoppingCartHasProducts(int itemCount) {
+        if(!homePageObj.cartCount().equals("0 items")) homePageObj.emptyCart();
+        for(int i =0; i<itemCount; i++) {
+            homePageObj.searchProduct(items[i]);
+            sleep(1);
+            catalogSearchPageObj.selectProduct();
+            sleep(1);
+            catalogSearchPageObj.buyProduct(1);
+        }
+    }
+
+    @When("I remove the first product in my cart")
+    public void iRemoveTheFirstProductInMyCart() {
+        cartPageObj.removeItem();
     }
 }
