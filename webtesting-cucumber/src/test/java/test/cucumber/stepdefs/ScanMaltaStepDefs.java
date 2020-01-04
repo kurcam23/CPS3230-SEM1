@@ -31,7 +31,7 @@ public class ScanMaltaStepDefs {
         loginPageObj = new LoginPageObj(browser);
         catalogSearchPageObj = new CatalogSearchPageObj(browser);
 
-        sleep(1);
+        sleep(2);
         homePageObj.closePopUp();
         sleep(1);
     }
@@ -110,16 +110,26 @@ public class ScanMaltaStepDefs {
 
     @And("I choose to buy the product")
     public void iChooseToBuyTheProduct() {
-        catalogSearchPageObj.buyProduct();
+        catalogSearchPageObj.buyProduct(1);
     }
 
     @Then("my shopping cart should contain {int} item")
     public void myShoppingCartShouldContainItem(int itemCount) {
+        sleep(1);
         assertEquals((itemCount)+" items",homePageObj.cartCount());
+    }
+
+    @When("I add {int} products to my shopping cart")
+    public void iAddProductsToMyShoppingCart(int itemCount) {
+        homePageObj.searchProduct("laptop");
+        sleep(1);
+        catalogSearchPageObj.selectProduct();
+        sleep(1);
+        catalogSearchPageObj.buyProduct(itemCount);
     }
 
     @After
     public void teardown() {
-        //browser.quit();
+        browser.quit();
     }
 }

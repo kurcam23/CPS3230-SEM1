@@ -46,6 +46,7 @@ public class HomePageObj {
 
     public void searchProduct(String product){
         browser.findElement(search).sendKeys(product);
+        sleep(1);
         browser.findElement(searchButton).click();
     }
 

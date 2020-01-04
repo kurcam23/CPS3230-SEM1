@@ -11,13 +11,13 @@ Feature: Search functionality
 #    Given I am a user on the website
 #    When I log in using invalid credentials
 #    Then I should not be logged in
-
-  Scenario: Product Search
-    Given I am a logged in user on the website
-    When I search for a product
-    And I select the first product in the list
-    Then I should see the product details
-
+#
+#  Scenario: Product Search
+#    Given I am a logged in user on the website
+#    When I search for a product
+#    And I select the first product in the list
+#    Then I should see the product details
+#
 #  Scenario: Add product to cart
 #    Given I am a logged in user on the website
 #    And my shopping cart is empty
@@ -29,20 +29,20 @@ Feature: Search functionality
 #    Given I am a logged in user on the website
 #    And my shopping cart is empty
 #    When I add 3 products to my shopping cart
-#    Then my shopping cart should contain <num-products> items
+#    Then my shopping cart should contain 3 item
 #
 #  Scenario: Add multiple products to cart
 #    Given I am a logged in user on the website
 #    And my shopping cart is empty
 #    When I add 5 products to my shopping cart
-#    Then my shopping cart should contain <num-products> items
-#
-#  Scenario: Add multiple products to cart
-#    Given I am a logged in user on the website
-#    And my shopping cart is empty
-#    When I add 10 products to my shopping cart
-#    Then my shopping cart should contain <num-products> items
-#
+#    Then my shopping cart should contain 5 item
+
+  Scenario: Add multiple products to cart
+    Given I am a logged in user on the website
+    And my shopping cart is empty
+    When I add 10 products to my shopping cart
+    Then my shopping cart should contain 10 item
+
 #  Scenario: Removing a product from cart
 #    Given I am a logged in user on the website
 #    And my shopping cart has 2 products
