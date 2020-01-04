@@ -10,15 +10,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import static org.junit.Assert.*;
 
-public class GoogleStepDefs {
+public class ScanMaltaStepDefs {
 
     WebDriver browser;
 
-    @Given("^I am using the Google website$")
-    public void iAmUsingTheGoogleWebsite() throws Throwable {
-
-
-        browser.get("http://www.google.com");
+    @Given("^I am using Scan Malta website$")
+    public void i_am_using_Scan_Malta_website() throws Throwable {
+        browser.get("https://www.scanmalta.com/newstore/");
     }
 
     @When("^I search for \"([^\"]*)\"$")
@@ -29,7 +27,6 @@ public class GoogleStepDefs {
 
     @Then("^the title should be \"([^\"]*)\"$")
     public void the_title_should_be(String expectedTitle) throws Exception {
-        // Write code here that turns the phrase above into concrete actions
         assertEquals(expectedTitle, browser.getTitle());
     }
 
@@ -41,7 +38,7 @@ public class GoogleStepDefs {
 
     @After
     public void teardown() {
-        browser.quit();
+        //browser.quit();
     }
 
 }

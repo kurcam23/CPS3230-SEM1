@@ -4,6 +4,6 @@ Feature: Search functionality
 
 
   Scenario: Simple Search
-    Given I am using the Google website
-    When I search for "Malta"
-    Then the title should be "Malta - Google Search"
+    Given I am using Scan Malta website
+    When I search for "Laptop"
+    Then the title should be "SCAN | Your Trusted Choice - Search results for: 'Laptop'"
