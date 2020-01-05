@@ -25,10 +25,6 @@ class ScanOperator {
     public void loggingIn() {
         isLoggedIn = true;
         isLoggedOut = false;
-        isSearches = false;
-        isAddingProductToCart = false;
-        isRemovingProductFromCart = false;
-        isCheckedOut = false;
 
         browser.get("https://www.scanmalta.com/newstore/customer/account/logout/");
         sleep(2);
@@ -42,5 +38,17 @@ class ScanOperator {
 
     public boolean isLoggedIn() {
         return isLoggedIn;
+    }
+
+    public void loggingOut() {
+        isLoggedIn = false;
+        isLoggedOut = true;
+
+        browser.get("https://www.scanmalta.com/newstore/customer/account/logout/");
+        sleep(2);
+    }
+
+    public boolean isLoggedOut() {
+        return isLoggedOut;
     }
 }

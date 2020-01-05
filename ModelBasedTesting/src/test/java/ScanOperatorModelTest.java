@@ -28,6 +28,6 @@ public class ScanOperatorModelTest {
     public void ScanMaltaTestRunner() {
         GreedyTester tester = new GreedyTester(new ScanOperatorModel(browser));
         tester.setRandom(new Random());
-        tester.generate(1);
+        tester.generate(2);
     }
 }
