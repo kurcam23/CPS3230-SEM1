@@ -7,6 +7,13 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JUnit4 Test Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
@@ -19,13 +26,25 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/Testing-master/AmazonTest" />
-    <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.includeInheritedMembers" value="true" />
+    <property name="create.test.in.the.same.root" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../CPS3230-Testing/currencymanager" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
-  <component name="RunManager">
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="edu.uom.currencymanager.currencies" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.CurrencyTest">
     <configuration name="CurrencyManager" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="edu.uom.currencymanager.CurrencyManager" />
       <module name="currencymanager" />
@@ -33,6 +52,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="CurrencyTest" type="JUnit" factoryName="JUnit">
+      <module name="currencymanager" />
+      <option name="PACKAGE_NAME" value="edu.uom.currencymanager.currencies" />
+      <option name="MAIN_CLASS_NAME" value="edu.uom.currencymanager.currencies.CurrencyTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="PARAMETERS" value="" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.CurrencyManager" />
+      <item itemvalue="JUnit.CurrencyTest" />
+    </list>
   </component>
   <component name="ServiceViewManager">
     <option name="viewStates">
@@ -60,45 +94,53 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="361" y="72" key="#Project_Structure" timestamp="1578076930296">
+    <state x="361" y="72" key="#Project_Structure" timestamp="1578226461977">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="72" key="#Project_Structure/0.0.1536.824/-1600.-63.1600.860@0.0.1536.824" timestamp="1578076930296" />
-    <state x="223" y="68" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1578076770525">
+    <state x="361" y="72" key="#Project_Structure/0.0.1536.824/-1600.-63.1600.860@0.0.1536.824" timestamp="1578226461977" />
+    <state x="223" y="68" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1578230129334">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="223" y="68" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/-1600.-63.1600.860@0.0.1536.824" timestamp="1578076770525" />
-    <state x="498" y="197" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1578076758809">
+    <state x="223" y="68" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/-1600.-63.1600.860@0.0.1536.824" timestamp="1578230129334" />
+    <state x="499" y="189" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1578226480336">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="498" y="197" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1536.824/-1600.-63.1600.860@0.0.1536.824" timestamp="1578076758809" />
-    <state x="549" y="168" key="FileChooserDialogImpl" timestamp="1578078444465">
+    <state x="499" y="189" key="#com.intellij.ide.util.PackageChooserDialog/0.0.1536.824/-1600.-63.1600.860@0.0.1536.824" timestamp="1578226480336" />
+    <state x="498" y="197" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1578230114803">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="168" key="FileChooserDialogImpl/0.0.1536.824/-1600.-63.1600.860@0.0.1536.824" timestamp="1578078444465" />
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1578077665770">
+    <state x="498" y="197" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1536.824/-1600.-63.1600.860@0.0.1536.824" timestamp="1578230114803" />
+    <state x="549" y="168" key="FileChooserDialogImpl" timestamp="1578223996962">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824/-1600.-63.1600.860@0.0.1536.824" timestamp="1578077665770" />
-    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1578077665770">
+    <state x="549" y="168" key="FileChooserDialogImpl/0.0.1536.824/-1600.-63.1600.860@0.0.1536.824" timestamp="1578223996962" />
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1578230244766">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824/-1600.-63.1600.860@0.0.1536.824" timestamp="1578077665770" />
-    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1578077665770">
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824/-1600.-63.1600.860@0.0.1536.824" timestamp="1578230244766" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1578230244766">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824/-1600.-63.1600.860@0.0.1536.824" timestamp="1578077665770" />
-    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1578077665770">
+    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824/-1600.-63.1600.860@0.0.1536.824" timestamp="1578230244766" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1578230244765">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824/-1600.-63.1600.860@0.0.1536.824" timestamp="1578077665770" />
-    <state x="277" y="56" key="SettingsEditor" timestamp="1578077481874">
+    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824/-1600.-63.1600.860@0.0.1536.824" timestamp="1578230244765" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1578230244766">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="277" y="56" key="SettingsEditor/0.0.1536.824/-1600.-63.1600.860@0.0.1536.824" timestamp="1578077481874" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824/-1600.-63.1600.860@0.0.1536.824" timestamp="1578230244766" />
+    <state x="277" y="0" key="SettingsEditor" timestamp="1578230177643">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="277" y="0" key="SettingsEditor/0.0.1536.824/-1600.-63.1600.860@0.0.1536.824" timestamp="1578230177643" />
     <state x="470" y="238" key="com.intellij.ide.util.TipDialog" timestamp="1578078413760">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="470" y="238" key="com.intellij.ide.util.TipDialog/0.0.1536.824/-1600.-63.1600.860@0.0.1536.824" timestamp="1578078413760" />
+    <state x="526" y="116" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1578226485225">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="526" y="116" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1536.824/-1600.-63.1600.860@0.0.1536.824" timestamp="1578226485225" />
   </component>
 </project>
