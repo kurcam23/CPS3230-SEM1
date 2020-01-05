@@ -1,5 +1,6 @@
-package edu.uom.currencymanager.currencies;
+package edu.uom.currencymanager.currencies.currencies;
 
+import edu.uom.currencymanager.currencies.Currency;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

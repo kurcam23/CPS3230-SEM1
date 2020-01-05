@@ -1,6 +1,8 @@
-package edu.uom.currencymanager.currencies;
+package edu.uom.currencymanager.currencies.currencies;
 
+import edu.uom.currencymanager.currencies.Util;
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -10,7 +12,7 @@ public class UtilTest {
 
     @Test
     public void testFormatAmount() {
-        assertEquals("1.00", Util.formatAmount(1));
+        Assert.assertEquals("1.00", Util.formatAmount(1));
     }
 
     @Test

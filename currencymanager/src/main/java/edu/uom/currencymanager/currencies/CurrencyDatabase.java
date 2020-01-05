@@ -50,7 +50,7 @@ public class CurrencyDatabase implements ICurrencyDatabase {
             Currency currency = Currency.fromString(nextLine);
 
             if (currency.code.length() == 3) {
-                if (!currencyExists(currency.code)) {
+                if (!CurrencyOperations.currencyExists(currencies,currency.code)) {
                     currencies.add(currency);
                 }
             } else {
@@ -59,74 +59,8 @@ public class CurrencyDatabase implements ICurrencyDatabase {
         }
     }
 
-    public Currency getCurrencyByCode(String code) {
-
-        for (Currency currency : currencies) {
-            if (currency.code.equalsIgnoreCase(code)) {
-                return currency;
-            }
-        }
-
-        return null;
-    }
-
-    public boolean currencyExists(String code) {
-        return getCurrencyByCode(code) != null;
-    }
-
     public List<Currency> getCurrencies() {
         return currencies;
-    }
-
-    public List<Currency> getMajorCurrencies() {
-        List<Currency> result = new ArrayList<Currency>();
-
-        for (Currency currency : currencies) {
-            if (currency.major) {
-                result.add(currency);
-            }
-        }
-
-        return result;
-    }
-
-    public ExchangeRate getExchangeRate(String sourceCurrencyCode, String destinationCurrencyCode) throws  Exception {
-        long FIVE_MINUTES_IN_MILLIS = 300000;  //5*60*100
-
-        ExchangeRate result = null;
-
-        Currency sourceCurrency = getCurrencyByCode(sourceCurrencyCode);
-        if (sourceCurrency == null) {
-            throw new Exception("Unkown currency: " + sourceCurrencyCode);
-        }
-
-        Currency destinationCurrency = getCurrencyByCode(destinationCurrencyCode);
-        if (destinationCurrency == null) {
-            throw new Exception("Unkown currency: " + destinationCurrencyCode);
-        }
-
-        //Check if exchange rate exists in database
-        String key = sourceCurrencyCode + destinationCurrencyCode;
-        if (exchangeRates.containsKey(key)) {
-            result = exchangeRates.get(key);
-            if (System.currentTimeMillis() - result.timeLastChecked > FIVE_MINUTES_IN_MILLIS) {
-                result = null;
-            }
-        }
-
-        if (result == null) {
-            double rate = currencyServer.getExchangeRate(sourceCurrencyCode, destinationCurrencyCode);
-            result = new ExchangeRate(sourceCurrency,destinationCurrency, rate);
-
-            //Cache exchange rate
-            exchangeRates.put(key, result);
-
-            //Cache inverse exchange rate
-            String inverseKey = destinationCurrencyCode+sourceCurrencyCode;
-            exchangeRates.put(inverseKey, new ExchangeRate(destinationCurrency, sourceCurrency, 1/rate));
-        }
-
-        return result;
     }
 
     public void addCurrency(Currency currency) throws Exception {
@@ -141,7 +75,7 @@ public class CurrencyDatabase implements ICurrencyDatabase {
     public void deleteCurrency(String code) throws Exception {
 
         //Save to list
-        currencies.remove(getCurrencyByCode(code));
+        currencies.remove(CurrencyOperations.getCurrencyByCode(currencies,code));
 
         //Persist
         persist();

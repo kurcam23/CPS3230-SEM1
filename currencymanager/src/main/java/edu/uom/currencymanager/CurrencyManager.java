@@ -1,6 +1,8 @@
 package edu.uom.currencymanager;
 
 import edu.uom.currencymanager.currencies.*;
+import edu.uom.currencymanager.currencyserver.CurrencyServer;
+import edu.uom.currencymanager.time.IUtilTime;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +16,11 @@ public class CurrencyManager {
     public CurrencyManager(ICurrencyDatabase currencyDatabase) throws Exception {
         this.currencyDatabase = currencyDatabase;
         this.currencyOperations = new CurrencyOperations(currencyDatabase);
+    }
+
+    public CurrencyManager(ICurrencyDatabase currencyDatabase, CurrencyServer currencyServer, IUtilTime utilTime) throws Exception {
+        this.currencyDatabase = currencyDatabase;
+        this.currencyOperations = new CurrencyOperations(currencyDatabase, currencyServer, utilTime);
     }
 
     public static void main(String[] args) throws Exception {

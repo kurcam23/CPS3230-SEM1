@@ -2,6 +2,7 @@ package edu.uom.currencymanager.currencies;
 
 import edu.uom.currencymanager.currencyserver.CurrencyServer;
 import edu.uom.currencymanager.currencyserver.DefaultCurrencyServer;
+import edu.uom.currencymanager.time.IUtilTime;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,11 +12,18 @@ public class CurrencyOperations {
 
     private ICurrencyDatabase currencyDatabase;
     private CurrencyServer currencyServer;
+    public IUtilTime utilTime;
     private HashMap<String, ExchangeRate> exchangeRates = new HashMap<>();
 
     public CurrencyOperations(ICurrencyDatabase currencyDatabase){
         this.currencyDatabase = currencyDatabase;
         this.currencyServer = new DefaultCurrencyServer();
+    }
+
+    public CurrencyOperations(ICurrencyDatabase currencyDatabase, CurrencyServer currencyServer, IUtilTime utilTime){
+        this.currencyDatabase = currencyDatabase;
+        this.currencyServer = currencyServer;
+        this.utilTime = utilTime;
     }
 
     public List<Currency> getMajorCurrencies() {
@@ -27,7 +35,6 @@ public class CurrencyOperations {
                 result.add(currency);
             }
         }
-
         return result;
     }
 
@@ -59,21 +66,21 @@ public class CurrencyOperations {
         String key = sourceCurrencyCode + destinationCurrencyCode;
         if (exchangeRates.containsKey(key)) {
             result = exchangeRates.get(key);
-            if (System.currentTimeMillis() - result.timeLastChecked > FIVE_MINUTES_IN_MILLIS) {
+            if (utilTime.getTimeInMilliSeconds() - result.lastChecked > FIVE_MINUTES_IN_MILLIS) {
                 result = null;
             }
         }
 
         if (result == null) {
             double rate = currencyServer.getExchangeRate(sourceCurrencyCode, destinationCurrencyCode);
-            result = new ExchangeRate(sourceCurrency,destinationCurrency, rate);
+            result = new ExchangeRate(sourceCurrency,destinationCurrency, rate, utilTime);
 
             //Cache exchange rate
             exchangeRates.put(key, result);
 
             //Cache inverse exchange rate
             String inverseKey = destinationCurrencyCode+sourceCurrencyCode;
-            exchangeRates.put(inverseKey, new ExchangeRate(destinationCurrency, sourceCurrency, 1/rate));
+            exchangeRates.put(inverseKey, new ExchangeRate(destinationCurrency, sourceCurrency, 1/rate, utilTime));
         }
 
         return result;
