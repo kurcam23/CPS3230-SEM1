@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class CurrencyDatabase {
+public class CurrencyDatabase implements ICurrencyDatabase {
 
     CurrencyServer currencyServer;
     List<Currency> currencies = new ArrayList<Currency>();

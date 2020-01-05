@@ -1,8 +1,6 @@
 package edu.uom.currencymanager;
 
-import edu.uom.currencymanager.currencies.Currency;
-import edu.uom.currencymanager.currencies.CurrencyDatabase;
-import edu.uom.currencymanager.currencies.ExchangeRate;
+import edu.uom.currencymanager.currencies.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,16 +8,18 @@ import java.util.Scanner;
 
 public class CurrencyManager {
 
-    CurrencyDatabase currencyDatabase;
+    private ICurrencyDatabase currencyDatabase;
+    private CurrencyOperations currencyOperations;
 
-    public CurrencyManager() throws Exception {
-        currencyDatabase = new CurrencyDatabase();
+    public CurrencyManager(ICurrencyDatabase currencyDatabase) throws Exception {
+        this.currencyDatabase = currencyDatabase;
+        this.currencyOperations = new CurrencyOperations(currencyDatabase);
     }
-
 
     public static void main(String[] args) throws Exception {
 
-        CurrencyManager manager = new CurrencyManager();
+        ICurrencyDatabase _currencyDatabase = new CurrencyDatabase();
+        CurrencyManager manager = new CurrencyManager(_currencyDatabase);
 
         Scanner sc = new Scanner(System.in);
 
@@ -107,12 +107,12 @@ public class CurrencyManager {
 
         List<ExchangeRate> exchangeRates = new ArrayList<ExchangeRate>();
 
-        List<Currency> currencies = currencyDatabase.getMajorCurrencies();
+        List<Currency> currencies = currencyOperations.getMajorCurrencies();
 
         for (Currency src : currencies) {
             for (Currency dst : currencies) {
                 if (src != dst) {
-                    exchangeRates.add(currencyDatabase.getExchangeRate(src.code, dst.code));
+                    exchangeRates.add(currencyOperations.getExchangeRate(src.code, dst.code));
                 }
             }
         }
@@ -120,7 +120,7 @@ public class CurrencyManager {
     }
 
     public ExchangeRate getExchangeRate(String sourceCurrency, String destinationCurrency) throws Exception {
-        return currencyDatabase.getExchangeRate(sourceCurrency, destinationCurrency);
+        return currencyOperations.getExchangeRate(sourceCurrency, destinationCurrency);
     }
 
     public void addCurrency(String code, String name, boolean major) throws Exception {
@@ -136,7 +136,7 @@ public class CurrencyManager {
         }
 
         //Check if currency already exists
-        if (currencyDatabase.currencyExists(code)) {
+        if (CurrencyOperations.currencyExists(currencyDatabase.getCurrencies(),code)) {
             throw new Exception("The currency " + code + " already exists.");
         }
 
@@ -147,7 +147,7 @@ public class CurrencyManager {
 
     public void deleteCurrencyWithCode(String code) throws Exception {
 
-        if (!currencyDatabase.currencyExists(code)) {
+        if (!CurrencyOperations.currencyExists(currencyDatabase.getCurrencies(),code)) {
             throw new Exception("Currency does not exist: " + code);
         }
 
