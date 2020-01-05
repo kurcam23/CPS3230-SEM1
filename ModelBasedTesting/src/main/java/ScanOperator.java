@@ -36,9 +36,7 @@ class ScanOperator {
         sleep(2);
     }
 
-    public boolean isLoggedIn() {
-        return isLoggedIn;
-    }
+
 
     public void loggingOut() {
         isLoggedIn = false;
@@ -48,7 +46,55 @@ class ScanOperator {
         sleep(2);
     }
 
-    public boolean isLoggedOut() {
-        return isLoggedOut;
+    public void searchProduct() {
+        isSearches = true;
+
+        browser.findElement(By.id("search")).sendKeys("Laptop");
+        browser.findElement(By.className("icon-search")).submit();
+        sleep(2);
+    }
+
+    public void addingToCart() {
+        isSearches = false;
+        isAddingProductToCart = true;
+
+        browser.findElements(By.className("item-image")).get(2).click();
+        sleep(2);
+        browser.findElement(By.id("product-addtocart-button")).click();
+        sleep(2);
+    }
+
+    public boolean isLoggedIn() { return isLoggedIn; }
+    public boolean isLoggedOut() { return isLoggedOut; }
+    public boolean isSearches(){ return isSearches; }
+    public boolean isAddingProductToCart() { return isAddingProductToCart; }
+    public boolean isRemovingProductFromCart() { return isRemovingProductFromCart; }
+    public boolean isCheckOut() { return isCheckedOut; }
+
+    public void removingFromCart() {
+        isAddingProductToCart = false;
+        isRemovingProductFromCart = true;
+
+        //Click the delete
+        if(browser.findElements(By.className("secondary")).size() > 0){
+            try{
+                browser.findElement(By.className("secondary")).click();
+            }catch(Exception e){
+                System.out.println("Error: "+e);
+            }
+
+        }
+        browser.findElement(By.className("btn-remove2")).click();
+        sleep(1);
+        browser.get("https://www.scanmalta.com/newstore/");
+    }
+
+    public void checkOut() {
+        isRemovingProductFromCart = false;
+        isCheckedOut = true;
+
+        browser.findElement(By.className("icon-cart")).click();
+        sleep(2);
+        browser.findElement(By.className("btn-proceed-checkout")).click();
     }
 }

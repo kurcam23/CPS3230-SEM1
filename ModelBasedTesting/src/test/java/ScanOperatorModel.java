@@ -60,4 +60,61 @@ public class ScanOperatorModel implements FsmModel {
         state = ScanOperatorStates.LOGGED_OUT;
         assertEquals(isLoggedOut, sut.isLoggedOut());
     }
+
+    public boolean searchesGuard(){ return getState().equals(ScanOperatorStates.SEARCHES); }
+    public @Action void searches(){
+        isSearches = true;
+
+        sut.searchProduct();
+        state = ScanOperatorStates.SEARCHES;
+
+        assertEquals(isSearches, sut.isSearches());
+    }
+
+    public boolean addingProductToCartGuard() {
+        return  (getState().equals(ScanOperatorStates.ADDING_PRODUCT_TO_CART));
+    }
+    public @Action
+    void addingProductToCart() {
+        isSearches = false;
+        isAddingProductToCart = true;
+
+        sut.addingToCart();
+        state = ScanOperatorStates.ADDING_PRODUCT_TO_CART;
+
+        assertEquals(isAddingProductToCart, sut.isAddingProductToCart());
+    }
+
+    public boolean removingProductFromCartGuard() {
+        return  (getState().equals(ScanOperatorStates.REMOVING_PRODUCT_FROM_CART)) ||
+                (getState().equals(ScanOperatorStates.ADDING_PRODUCT_TO_CART)) ;
+    }
+    public @Action
+    void removingProductFromCart() {
+
+        isAddingProductToCart = false;
+        isRemovingProductFromCart = true;
+
+        sut.removingFromCart();
+        state = ScanOperatorStates.REMOVING_PRODUCT_FROM_CART;
+
+        assertEquals(isRemovingProductFromCart, sut.isRemovingProductFromCart());
+    }
+
+    public boolean checkedOutGuard() {
+        return  (getState().equals(ScanOperatorStates.ADDING_PRODUCT_TO_CART))  ||
+                (getState().equals(ScanOperatorStates.REMOVING_PRODUCT_FROM_CART)) && isLoggedIn;
+    }
+    public @Action
+    void checkedOut() {
+
+        isRemovingProductFromCart = true;
+        isCheckedOut = true;
+
+        sut.checkOut();
+        state = ScanOperatorStates.CHECKOUT;
+
+        assertEquals(isCheckedOut, sut.isCheckOut());
+    }
+
 }

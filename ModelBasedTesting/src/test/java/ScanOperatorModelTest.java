@@ -28,6 +28,11 @@ public class ScanOperatorModelTest {
     public void ScanMaltaTestRunner() {
         GreedyTester tester = new GreedyTester(new ScanOperatorModel(browser));
         tester.setRandom(new Random());
-        tester.generate(2);
+        tester.generate(10);
+        tester.buildGraph();
+        tester.addCoverageMetric(new StateCoverage());
+        tester.addCoverageMetric(new ActionCoverage());
+        tester.addCoverageMetric(new TransitionPairCoverage());
+        tester.printCoverage();
     }
 }
