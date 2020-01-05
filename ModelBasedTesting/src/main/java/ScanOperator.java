@@ -48,7 +48,7 @@ class ScanOperator {
 
     public void searchProduct() {
         isSearches = true;
-
+        browser.findElement(By.id("search")).clear();
         browser.findElement(By.id("search")).sendKeys("Laptop");
         browser.findElement(By.className("icon-search")).submit();
         sleep(2);

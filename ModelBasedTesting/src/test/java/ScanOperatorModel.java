@@ -36,10 +36,13 @@ public class ScanOperatorModel implements FsmModel {
     }
 
     public boolean loggingInGuard() {
-        return getState().equals(ScanOperatorStates.LOGGED_OUT);
+        return (getState().equals(ScanOperatorStates.LOGGED_OUT))||
+                (getState().equals(ScanOperatorStates.SEARCHES)) ||
+                (getState().equals(ScanOperatorStates.ADDING_PRODUCT_TO_CART)) ||
+                (getState().equals(ScanOperatorStates.REMOVING_PRODUCT_FROM_CART)) ||
+                ((getState().equals(ScanOperatorStates.CHECKOUT)));
     }
-    public @Action
-    void loggingIn() {
+    public @Action void loggingIn() {
         sut.loggingIn();
         isLoggedIn = true;
         isLoggedOut = false;
@@ -49,10 +52,12 @@ public class ScanOperatorModel implements FsmModel {
     }
 
     public boolean loggingOutGuard() {
-        return !getState().equals(ScanOperatorStates.LOGGED_OUT);
+        return (getState().equals(ScanOperatorStates.LOGGED_IN)) ||
+                (getState().equals(ScanOperatorStates.SEARCHES)) ||
+                (getState().equals(ScanOperatorStates.ADDING_PRODUCT_TO_CART)) ||
+                (getState().equals(ScanOperatorStates.REMOVING_PRODUCT_FROM_CART)) && isLoggedIn;
     }
-    public @Action
-    void loggingOut() {
+    public @Action void loggingOut() {
         sut.loggingOut();
         isLoggedIn = false;
         isLoggedOut = true;
@@ -61,7 +66,13 @@ public class ScanOperatorModel implements FsmModel {
         assertEquals(isLoggedOut, sut.isLoggedOut());
     }
 
-    public boolean searchesGuard(){ return getState().equals(ScanOperatorStates.SEARCHES); }
+    public boolean searchesGuard(){
+        return (getState().equals(ScanOperatorStates.LOGGED_IN)) ||
+                (getState().equals(ScanOperatorStates.LOGGED_OUT)) ||
+                (getState().equals(ScanOperatorStates.SEARCHES)) ||
+                (getState().equals(ScanOperatorStates.ADDING_PRODUCT_TO_CART)) ||
+                (getState().equals(ScanOperatorStates.REMOVING_PRODUCT_FROM_CART));
+    }
     public @Action void searches(){
         isSearches = true;
 
@@ -72,7 +83,7 @@ public class ScanOperatorModel implements FsmModel {
     }
 
     public boolean addingProductToCartGuard() {
-        return  (getState().equals(ScanOperatorStates.ADDING_PRODUCT_TO_CART));
+        return  (getState().equals(ScanOperatorStates.SEARCHES));
     }
     public @Action
     void addingProductToCart() {
