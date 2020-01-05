@@ -1,18 +1,21 @@
 import enums.ScanOperatorStates;
+import nz.ac.waikato.modeljunit.Action;
 import nz.ac.waikato.modeljunit.FsmModel;
 import org.openqa.selenium.WebDriver;
+
+import static org.junit.Assert.assertEquals;
 
 public class ScanOperatorModel implements FsmModel {
 
     WebDriver browser;
 
-    private ScanOperator scanOperator;
+    private ScanOperator sut;
     private ScanOperatorStates state;
     private boolean isLoggedIn,isSearches, isAddingProductToCart, isRemovingProductFromCart, isCheckedOut, isLoggedOut;
 
     ScanOperatorModel(WebDriver browser) {
         this.browser = browser;
-        scanOperator = new ScanOperator(browser);
+        sut = new ScanOperator(browser);
     }
 
     public Object getState() {
@@ -28,7 +31,27 @@ public class ScanOperatorModel implements FsmModel {
         isCheckedOut = false;
         isLoggedOut = true;
         if(b){
-            scanOperator = new ScanOperator(browser);
+            sut = new ScanOperator(browser);
         }
+    }
+
+    public boolean loggingInGuard() {
+        return (isLoggedOut);
+    }
+    public @Action
+    void loggingIn() {
+
+        sut.loggingIn();
+
+        isLoggedIn = true;
+        isLoggedOut = false;
+        isSearches = false;
+        isAddingProductToCart = false;
+        isRemovingProductFromCart = false;
+        isCheckedOut = false;
+
+        state = ScanOperatorStates.LOGGED_IN;
+
+        assertEquals(isLoggedIn, sut.isLoggedIn());
     }
 }
