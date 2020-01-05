@@ -18,7 +18,7 @@ public class CurrencyManager {
 
     public static void main(String[] args) throws Exception {
 
-        ICurrencyDatabase _currencyDatabase = new CurrencyDatabase();
+        ICurrencyDatabase _currencyDatabase = DatabaseFactory.GetCurrencyDatabase();
         CurrencyManager manager = new CurrencyManager(_currencyDatabase);
 
         Scanner sc = new Scanner(System.in);
