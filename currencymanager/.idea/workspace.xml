@@ -53,10 +53,21 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.CurrencyOperationsTest">
+  <component name="RunManager" selected="JUnit.AllTests">
     <configuration name="CurrencyManager" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="edu.uom.currencymanager.CurrencyManager" />
       <module name="currencymanager" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AllTests" type="JUnit" factoryName="JUnit">
+      <module name="currencymanager" />
+      <option name="PACKAGE_NAME" value="edu.uom.currencymanager" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <option name="PARAMETERS" value="" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -123,6 +134,7 @@
       <item itemvalue="JUnit.CurrencyTest" />
       <item itemvalue="JUnit.ExchangeRateTest" />
       <item itemvalue="JUnit.UtilTest" />
+      <item itemvalue="JUnit.AllTests" />
     </list>
   </component>
   <component name="ServiceViewManager">
@@ -155,18 +167,18 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="72" key="#Project_Structure/0.0.1536.824/-1600.-63.1600.860@0.0.1536.824" timestamp="1578226461977" />
-    <state x="223" y="68" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1578255894398">
+    <state x="223" y="68" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1578271695687">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="223" y="68" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/-1600.-63.1600.860@0.0.1536.824" timestamp="1578255894398" />
-    <state x="499" y="189" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1578226480336">
+    <state x="223" y="68" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/-1600.-63.1600.860@0.0.1536.824" timestamp="1578271695687" />
+    <state x="499" y="189" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1578271688269">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="499" y="189" key="#com.intellij.ide.util.PackageChooserDialog/0.0.1536.824/-1600.-63.1600.860@0.0.1536.824" timestamp="1578226480336" />
-    <state x="498" y="197" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1578255888038">
+    <state x="499" y="189" key="#com.intellij.ide.util.PackageChooserDialog/0.0.1536.824/-1600.-63.1600.860@0.0.1536.824" timestamp="1578271688269" />
+    <state x="498" y="197" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1578271659817">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="498" y="197" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1536.824/-1600.-63.1600.860@0.0.1536.824" timestamp="1578255888038" />
+    <state x="498" y="197" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1536.824/-1600.-63.1600.860@0.0.1536.824" timestamp="1578271659817" />
     <state x="472" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1578254077722">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -175,22 +187,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="168" key="FileChooserDialogImpl/0.0.1536.824/-1600.-63.1600.860@0.0.1536.824" timestamp="1578256757451" />
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1578256541792">
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1578271702631">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824/-1600.-63.1600.860@0.0.1536.824" timestamp="1578256541792" />
-    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1578256541792">
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824/-1600.-63.1600.860@0.0.1536.824" timestamp="1578271702631" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1578271702631">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824/-1600.-63.1600.860@0.0.1536.824" timestamp="1578256541792" />
-    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1578256541791">
+    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824/-1600.-63.1600.860@0.0.1536.824" timestamp="1578271702631" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1578271702631">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824/-1600.-63.1600.860@0.0.1536.824" timestamp="1578256541791" />
-    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1578256541792">
+    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824/-1600.-63.1600.860@0.0.1536.824" timestamp="1578271702631" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1578271702631">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824/-1600.-63.1600.860@0.0.1536.824" timestamp="1578256541792" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824/-1600.-63.1600.860@0.0.1536.824" timestamp="1578271702631" />
     <state x="277" y="0" key="SettingsEditor" timestamp="1578230177643">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
